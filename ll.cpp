@@ -3,7 +3,7 @@ using namespace std;
 
 class Node {
     public:
-        int data;
+    int data;
     Node* next;
 
 
@@ -56,10 +56,31 @@ Node* removeshead(Node* head){
     return head;
 }
 
+void print(Node* head ){
+    Node* temp= head;
+    while ((temp))
+    {
+        cout<< head->data<< " ";
+        head= head->next;
+
+    }
+    cout<<endl;
+}
+Node * deletetail( Node * head) {
+    if(head==NULL || head->next== NULL )return NULL;
+
+    Node* temp=head;
+    while(temp->next->next!=NULL){
+        temp= temp->next; // to move to the next node or mover=temp 
+        }
+        delete temp->next;
+        temp->next= NULL;
+
+        return head;
+}
+
 int main(){
     vector<int> arr = {10, 20, 30,43,76,56,78,90};
-    // Node* y=new Node(arr[0]);
-    // cout<<y->data<<endl;
 
     Node* head=covertArr2LL(arr);
     cout<< head->data<<endl;
@@ -76,5 +97,8 @@ int main(){
     cout<<"Is 43 present in the linked list: "<<checkispresent(head,43)<<endl;
     head=removeshead(head);
     cout<<head->data<<endl;
+
+    
+
     
 }
